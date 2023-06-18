@@ -26,7 +26,7 @@ const CustomButton = ({ type, title, customStyles, handleClick }) => {
       className={`px-2 py-1.5 flex-1 rounded-md ${customStyles}`}
       style={generateStyles(type)}
       onClick={handleClick}
-      title={title}
+      // title={title}
     >
       {title}
     </button>

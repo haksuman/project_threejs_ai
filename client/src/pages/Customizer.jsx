@@ -25,6 +25,11 @@ const Customizer = () => {
     stylishShirt: false,
   });
 
+  const handleDownload = () => {
+    const canvas = document.querySelector("canvas");
+    downloadCanvasToImage(canvas, "model.png");
+  };
+
   // show tab content depending on the activeTab
   const generateTabContent = () => {
     switch (activeEditorTab) {
@@ -78,6 +83,9 @@ const Customizer = () => {
 
   const handleActiveFilterTab = (tabName) => {
     switch (tabName) {
+      case "download":
+        handleDownload();
+        break;
       case "logoShirt":
         state.isLogoTexture = !activeFilterTab[tabName];
         break;
@@ -142,6 +150,14 @@ const Customizer = () => {
                 handleClick={() => handleActiveFilterTab(tab.name)}
               />
             ))}
+            {/* <CustomButton
+              type="icon"
+              title={<img src={download} alt="download" />}
+              handleClick={handleDownload}
+              customStyles="px-4 py-2.5"
+            /> */}
+            {/* <img src={download} alt="download" /> */}
+            {/* </CustomButton> */}
           </motion.div>
         </>
       )}
